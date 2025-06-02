@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ shop.name }}</title>
+</head>
+<body>
+  <h1>{{ shop.name }}</h1>
+  <p>ジャンル: {{ shop.genre.name }}</p>
+  <p>住所: {{ shop.address }}</p>
+  <p>営業時間: {{ shop.open }}</p>
+  <p>定休日: {{ shop.close }}</p>
+  <img src="{{ shop.photo.pc.l }}" alt="店舗画像">
+
+  <p>
+    <a href="https://www.google.com/maps/search/?api=1&query={{ shop.address | urlencode }}" target="_blank">
+      地図で見る
+    </a>
+  </p>
+
+  {% if shop.lat and shop.lng %}
+  <h2>地図</h2>
+  <iframe
+    width="100%"
+    height="300"
+    style="border:0"
+    loading="lazy"
+    allowfullscreen
+    src="https://maps.google.com/maps?q={{ shop.lat }},{{ shop.lng }}&output=embed">
+  </iframe>
+  {% endif %}
+
+  <a href="{{ url_for('main.search') }}">← 戻る</a>
+</body>
+</html>
+

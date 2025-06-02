@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>検索結果</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <h1>検索結果</h1>
+
+  {% if shops %}
+    <div class="card-container">
+      {% for shop in shops %}
+        <div class="shop-card">
+          <img src="{{ shop.image }}" alt="店舗画像" class="shop-image">
+          <div class="shop-info">
+            <h2><a href="{{ url_for('main.shop_detail', shop_id=shop.id) }}">{{ shop.name }}</a></h2>
+            <p>ジャンル：{{ shop.genre }}</p>
+            <p>地域：{{ shop.area }}</p>
+            <p>価格帯：{{ shop.price }}</p>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <p>該当するお店は見つかりませんでした。</p>
+  {% endif %}
+
+  <br>
+  <a href="{{ url_for('main.search') }}" class="menu-button">もう一度検索</a>
+</body>
+</html>
+
+
+
+
