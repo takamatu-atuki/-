@@ -3,9 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <title>ジャンルで検索</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='common.css') }}">
+  <!-- 共通スタイル -->
+<link rel="stylesheet" href="{{ url_for('static', filename='detail.css') }}">
+<!-- 検索画面スタイル -->
+<link rel="stylesheet" href="{{ url_for('static', filename='search.css') }}">
 </head>
 <body>
+  <div class="scroll-wrapper">
+  <div class="container">
   <h1>グルメ検索フォーム</h1>
   <form action="{{ url_for('main.results') }}" method="POST">
     <div class="form-group">
@@ -42,6 +48,8 @@
       <label for="keyword">キーワード</label>
       <input type="text" name="keyword" id="keyword" placeholder="駅名など">
     </div>
+    </div>
+</div>
 
     <button type="submit" class="menu-button">検索</button>
   </form>

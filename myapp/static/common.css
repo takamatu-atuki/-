@@ -1,0 +1,97 @@
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: auto;  /* ✅ 横スクロール許可 */
+}
+
+
+.title {
+  text-align: center;
+  font-size: 32px;
+  font-weight: bold;
+  margin: 30px 0;
+}
+
+
+h1 {
+  margin-bottom: 30px;
+}
+
+.menu-button {
+  min-width: 120px;
+  text-align: center;
+  display: inline-block;
+  margin: 10px;
+  padding: 15px 30px;
+  font-size: 18px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.menu-button:hover {
+  background-color: #45a049;
+}
+
+.hero-wrapper {
+  background-color: #ebb0b0;
+  padding: 40px 0;
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 100%;              /* ✅ 100vw → 100% に変更 */
+  overflow-x: hidden;        /* ✅ 横スクロール許可（または削除） */
+}
+
+
+
+.hero {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  max-width: 700px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+
+
+
+
+.fixed-text {
+  width: 300px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 10px;     /* ← ここが重要 */
+}
+
+
+
+
+.slideshow {
+  width: 400px;
+  flex-shrink: 0;  /* スライドも縮まないようにする */
+}
+
+
+.slide {
+  display: none;
+  width: 100%;
+  border-radius: 12px;
+}
+
+.slide.active {
+  display: block;
+}
+
+.slide img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+

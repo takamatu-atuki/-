@@ -3,7 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <title>検索結果</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='common.css') }}">
+  <!-- 共通スタイル -->
+<link rel="stylesheet" href="{{ url_for('static', filename='detail.css') }}">
+<!-- 検索画面スタイル -->
+<link rel="stylesheet" href="{{ url_for('static', filename='search.css') }}">
 </head>
 <body>
   <h1>検索結果</h1>
@@ -27,7 +31,7 @@
   {% endif %}
 
   <br>
-  <a href="{{ url_for('main.search') }}" class="menu-button">もう一度検索</a>
+  <a href="{{ url_for('main.index') }}" class="menu-button">トップに戻る</a>
 </body>
 </html>
 

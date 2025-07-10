@@ -1,0 +1,107 @@
+
+/* search.css - 検索画面・検索結果用スタイル */
+.container {
+  max-width: 1200px;   /* ホットペッパーっぽい幅 */
+  margin: 0 auto;      /* 中央寄せ */
+  padding: 0 0px;     /* 画面が狭いときに左右に余白 */
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* スクロール対応のラッパー（body直下に指定） */
+body {
+  overflow-x: auto;
+  min-width: 700px; /* 極端に狭くても潰れすぎない */
+}
+
+.search-form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 20px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  min-width: 150px;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+input[type="text"],
+select {
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  width: 100%;
+  max-width: 200px;
+  min-width: 140px;
+  box-sizing: border-box;
+}
+
+/* 検索結果カード */
+.card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.shop-card {
+  display: flex;
+  width: 90%;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.shop-image {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.shop-info {
+  flex: 1;
+  text-align: left;
+}
+
+.shop-info h2 {
+  margin-top: 0;
+  font-size: 22px;
+  color: #0077cc;
+}
+
+.shop-info p {
+  margin: 6px 0;
+  font-size: 16px;
+}
+
+.search-toggle summary {
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.search-toggle[open] summary::after {
+  content: "（クリックで閉じる）";
+  font-weight: normal;
+  font-size: 14px;
+  margin-left: 10px;
+  color: gray;
+}

@@ -1,5 +1,8 @@
 from flask import Blueprint, render_template, request
 import requests
+from flask import session
+from flask import redirect, url_for
+
 
 main_routes = Blueprint('main', __name__)
 
@@ -42,12 +45,29 @@ def search():
     return render_template('search.html', genres=genres, areas=areas)
 
 
-@main_routes.route('/results', methods=['POST'])
+@main_routes.route('/results', methods=['GET', 'POST'])
 def results():
-    area = request.form.get('area')
-    genre = request.form.get('genre')
-    keyword = request.form.get('keyword')
+    if request.method == 'POST':
+        area = request.form.get('area')
+        genre = request.form.get('genre')
+        keyword = request.form.get('keyword')
 
+        # 🔽 セッションに保存
+        session['search'] = {
+            'area': area,
+            'genre': genre,
+            'keyword': keyword
+        }
+    else:
+        # 🔽 GET時 → セッションから取得
+        search = session.get('search')
+        if not search:
+            return redirect(url_for('main.index'))
+        area = search['area']
+        genre = search['genre']
+        keyword = search['keyword']
+
+    # 共通：検索処理
     params = {
         'key': API_KEY,
         'large_area': area,
